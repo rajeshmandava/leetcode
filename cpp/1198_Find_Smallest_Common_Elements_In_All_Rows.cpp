@@ -33,3 +33,26 @@ public:
         return -1;
     }
 };
+
+// Hashing approach using map
+
+class Solution {
+public:
+    int smallestCommonElement(vector<vector<int>>& mat) {
+        int m = mat.size();
+        int n = mat[0].size();
+    
+        std::map<int,int> count={};
+        for(int i=0; i < m; i++){
+            for(int j = 0; j<n; j++){
+            count[mat[i][j]]++;    
+            }
+        }
+        for(auto it=count.begin(); it!=count.end();it++){
+            
+            if(m == it->second)
+                return it->first;
+        }
+        return -1;
+    }
+};
